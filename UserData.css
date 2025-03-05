@@ -1,0 +1,71 @@
+﻿body {
+    font-family:Cambria;
+    border: 1px solid blue;
+    
+}
+table {
+    width: 50%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 18px;
+    text-align: left;
+}
+
+th, td {
+    padding: 10px;
+    border: 2px solid lightblue;
+}
+
+th {
+    background-color: #f4f4f4;
+}
+.MaterialProp {
+    display: block;
+    border: 1px solid blue;
+    padding: 10px;
+    border-radius: 5px;
+}
+.columnProp {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border: 1px solid blue;
+    border-radius: 5px;
+    padding: 10px;
+    
+}
+.mainSecition{
+    display:block;
+    
+}
+.RfProp {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border: 1px solid blue;
+    padding: 10px;
+    border-radius: 5px;
+}
+.result {
+    padding: 10px;
+    border-radius: 5px;
+    margin: 5px;
+}
+h3 {
+    color: blueviolet;
+    font-weight: bold;
+}
+
+   
+h4 {
+    color: red;
+}
+input {
+    
+    
+}
+select {
+    
+}
+label{
+    font-weight:bold;
+    color:dodgerblue
+}

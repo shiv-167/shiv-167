@@ -1,14 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>Shiv</title>
-        <style>
-            h2
-            {color:red}
-        </style>
-    </head>
-    <body>
-        <h2>Shiv Nath Mishra</h2>
-    </body>
+<head>
+<meta charset="utf-8">
+<title>Column Interaction Curve</title>
+</head>
+<Body>
+    <h3>Design Data</h3>
+<link href="UserData.css" rel="stylesheet" />
+
+
+<h4 style="display:block">Material Properties</h4>
+<div class="MaterialProp">
+	<label>Enter the grade of concrete</label>
+	<select class="concGrade" @bind="cGrade">
+		@foreach( string grade in Enum.GetNames(typeof (RCC_core.ConcreteGrade.Grade)))
+		{
+			<option value=@grade>@grade</option>
+		}
+	</select>
+	<label>Enter the grade of Steel</label>
+	<select class="steelGrade" @bind="sGrade">
+		@foreach (string grade in Enum.GetNames(typeof(RCC_core.SteelGrade.Grade)))
+		{
+			<option value=@grade>@grade</option>
+		}
+	</select>
+	<img src="Col.png" alt="" style="height:100px ; display:block" />
+</div>
+<h4 style="display:block">Section Properties</h4>
+<div class="columnProp">
+	<label>Column dimension in X-Direction</label>
+	<input class="Dx" @bind="Dx" type="number" />
+	<label>mm</label>
+	<label>Column dimension in Y-Direction</label>
+	<input class="Dy" @bind="Dy" type="number" />
+	<label>mm</label>
+	<label>Clear Cover</label>
+	<input class="cc" @bind="cc" type="number" />
+	<label>mm</label>
+</div>
+<h4 style="display:block">Reinforcement Details</h4>
+<div class="RfProp">
+	<label>Rebar Nos in X-Direction</label>
+	<input class="nRX" @bind="nrX" type="number" />
+	<label>Nos</label>
+	<label>Rebar Nos in Y-Direction</label>
+	<input class="nRY" @bind="nrY" type="number" />
+	<label>Nos</label>
+	<label>Diameter of Ties  </label>
+	<select class="diaT" @bind="diaTies">
+		@foreach (string dia in Enum.GetNames(typeof(RCC_core.Rebar.Dia)))
+		{
+			<option value=@dia>@dia</option>
+		}
+	</select>
+	<label>mm</label>
+	<label>Diameter of Corner Rebars </label>
+	<select class="diaC" @bind="diaCorner">
+		@foreach (string dia in Enum.GetNames(typeof(RCC_core.Rebar.Dia)))
+		{
+			<option value=@dia>@dia</option>
+		}
+	</select>
+	<label>mm</label>
+
+	<label>Diameter of Other Rebars </label>
+	<select class="diaO" @bind="diaOther">
+		@foreach (string dia in Enum.GetNames(typeof(RCC_core.Rebar.Dia)))
+		{
+			<option value=@dia>@dia</option>
+		}
+	</select>
+	<label>mm</label>
+	<button @onclick="cal">OK </button>
+</div>
+<div class="result">
+
+	<table>
+		<tr>
+
+			<th>Xu/D</th>
+			<th>PuR</th>
+			<th>MuR</th>
+		</tr>
+
+		@foreach(InteractionCurvePoint point in com.curvePoints)
+		{
+			<tr>
+
+				<td>@point.xu</td>
+				<td>@point.P</td>
+				<td>@point.M</td>
+
+			</tr>
+
+		}
+	</table>
+</div>
+
+</Body>
+
+
 </html>
